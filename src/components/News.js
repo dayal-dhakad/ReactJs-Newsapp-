@@ -26,7 +26,7 @@ export class News extends Component {
   }
 
   async componentDidMount() {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=6c87d4fee1b347379c5f4b91b12cde09&page=1&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=fbd70c97fbaa4be1894a59bbda65f43a&page=1&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -45,7 +45,7 @@ export class News extends Component {
       this.props.country
     }&category=${
       this.props.category
-    }&apiKey=6c87d4fee1b347379c5f4b91b12cde09&page=${
+    }&apiKey=fbd70c97fbaa4be1894a59bbda65f43a&page=${
       this.state.page - 1
     }&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
@@ -72,7 +72,7 @@ export class News extends Component {
         this.props.country
       }&category=${
         this.props.category
-      }&apiKey=6c87d4fee1b347379c5f4b91b12cde09&page=${
+      }&apiKey=fbd70c97fbaa4be1894a59bbda65f43a&page=${
         this.state.page + 1
       }&pageSize=${this.props.pageSize}`;
       this.setState({ loading: true });
@@ -106,7 +106,10 @@ export class News extends Component {
                         : ""
                     }
                     imageUrl={element.urlToImage}
-                    newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name}
+                    newsUrl={element.url}
+                    author={element.author}
+                    date={element.publishedAt}
+                    source={element.source.name}
                   />
                 </div>
               );
@@ -123,7 +126,6 @@ export class News extends Component {
             &larr; Previous
           </button>
           <button
-            
             disabled={
               this.state.page + 1 >
               Math.ceil(this.state.totalResults / this.props.pageSize)
