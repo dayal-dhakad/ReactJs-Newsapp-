@@ -18,21 +18,8 @@ const App = () => {
         <LoadingBar height={3} color="#f11946" progress={progress} />
         <div>
           <Routes>
-            <Route
-              exact
-              path="/"
-              element={
-                <News
-                  setProgress={setProgress}
-                  key="general"
-                  pageSize={pageSize}
-                  country="in"
-                  category="general"
-                />
-              }
-            />
-            <Route
-              exact
+            <Route exact path="/" element={ <News setProgress={setProgress}  key="general"  pageSize={pageSize} country="in" category="general"/> } />
+            <Route exact
               path="/business"
               element={
                 <News
@@ -117,7 +104,7 @@ const App = () => {
                   setProgress={setProgress}
                   key="technology"
                   pageSize={pageSize}
-                  country="in"
+                  country="us"
                   category="technology"
                 />
               }
